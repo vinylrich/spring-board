@@ -1,10 +1,17 @@
 package com.example.board.config;
 
-import lombok.Data;
+import com.example.board.domain.User;
+import lombok.Getter;
 
-@Data
+@Getter
 public class SessionUser {
     private String name;
+    private String email;
     private String picture;
 
+    public SessionUser(User user) {
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.picture = user.getPicture();
+    }
 }

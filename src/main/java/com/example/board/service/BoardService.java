@@ -57,9 +57,10 @@ public class BoardService {
         Integer blockLastPageNum = (totalLastPageNum > curPageNum + BLOCK_PAGE_NUM_COUNT) ? curPageNum+BLOCK_PAGE_NUM_COUNT : totalLastPageNum;
 
         curPageNum = (curPageNum<=3) ? 1: curPageNum-2;
-        for (int val = curPageNum, idx=0; val<=blockLastPageNum; ){
-
+        for (int val = curPageNum, idx=0; val<=blockLastPageNum; val++,idx++){
+            pageList[idx] = val;
         }
+        return pageList;
     }
     @Transactional
     public BoardDto getPost(Long id){
